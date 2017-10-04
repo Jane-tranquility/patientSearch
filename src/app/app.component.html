@@ -1,0 +1,29 @@
+<app-search-text [searchText]="searchText"></app-search-text>
+
+<div>
+	<input [(ngModel)]="searchText" class="input" placeholder="search for patient">
+	<button (click)="SearchByName(searchText)">Search!</button>
+</div>
+
+
+<table class="view">
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email Address</th>
+			<th>Profile Image</th>
+			<th>Doctor Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let patient of patients">
+			<td>{{patient.firstName}}</td>
+			<td>{{patient.lastName}}</td>
+			<td>{{patient.emailAddress}}</td>
+			<td><img height="64px" width="64px" src="{{patient.profileImage}}"></td>
+			<td>{{patient.doctorName}}</td>
+		</tr>
+	</tbody>
+</table>
+
